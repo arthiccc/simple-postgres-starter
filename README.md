@@ -1,39 +1,40 @@
 # Simple PostgreSQL Starter Project
 
-A minimal, ready-to-use template for a PostgreSQL project with a Node.js connection script. Designed for GitHub and instantly runnable on CodeSandbox.
+A minimal, ready-to-use template for a PostgreSQL project with a Bun web server. Designed for GitHub and instantly runnable on CodeSandbox.
 
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Bun](https://img.shields.io/badge/Bun-000000?style=for-the-badge&logo=bun&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
 
 ## Features
 
 - 🐳 **Dockerized PostgreSQL**: Pre-configured `docker-compose.yml` with a health check.
 - 💾 **Auto-Initialization**: `init.sql` automatically creates a table and seeds data on first run.
-- 🚀 **Ready to Run**: Includes an **Express.js** web server (`index.js`) to display data in the browser.
+- 🚀 **Ready to Run**: Includes an **Express.js** web server (`index.js`) running on **Bun** to display data in the browser.
 - ☁️ **Cloud Ready**: Configured for CodeSandbox Devboxes.
 
 ## Quick Start (Local)
 
 1.  **Install Dependencies**:
     ```bash
-    npm install
+    bun install
     ```
 
 2.  **Start Database**:
     ```bash
-    npm run db:up
+    bun run db:up
     ```
+    *Note: If you have issues, run `bun run db:reset` to start fresh.*
 
 3.  **Run Application**:
     ```bash
-    npm start
+    bun start
     ```
     Open [http://localhost:3000](http://localhost:3000) in your browser to see the user data.
 
 4.  **Stop Database**:
     ```bash
-    npm run db:down
+    bun run db:down
     ```
 
 ## Run on CodeSandbox
@@ -48,5 +49,5 @@ This project is configured to run automatically in a CodeSandbox Devbox (VM).
 
 - `docker-compose.yml`: Defines the PostgreSQL service.
 - `init.sql`: SQL script ran on container startup (creates `users` table).
-- `index.js`: Node.js script connecting to the DB and fetching data.
+- `index.js`: Bun/Express script connecting to the DB and fetching data.
 - `.codesandbox/`: Configuration for cloud development environment.
