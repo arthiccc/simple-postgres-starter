@@ -1,0 +1,22 @@
+{
+  "name": "simple-postgres-starter",
+  "version": "1.0.0",
+  "description": "A simple PostgreSQL starter project ready for GitHub and CodeSandbox",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "db:up": "docker-compose up -d",
+    "db:down": "docker-compose down"
+  },
+  "keywords": [
+    "postgres",
+    "starter",
+    "nodejs",
+    "docker"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^8.11.3"
+  }
+}

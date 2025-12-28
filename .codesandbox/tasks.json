@@ -1,0 +1,22 @@
+{
+  "setupTasks": [
+    {
+      "name": "Install Dependencies",
+      "command": "npm install"
+    },
+    {
+      "name": "Pull Docker Images",
+      "command": "docker-compose pull"
+    }
+  ],
+  "tasks": {
+    "run-app": {
+      "name": "Start DB and Run App",
+      "command": "npm run db:up && echo 'Waiting for DB...' && sleep 5 && npm start",
+      "runAtStart": true,
+      "preview": {
+        "port": 3000
+      }
+    }
+  }
+}
