@@ -1,27 +1,30 @@
 const express = require('express');
-const { Client } = require('pg');
+const { Pool } = require('pg');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-const client = new Client({
+// Use Pool instead of Client for better connection management
+const pool = new Pool({
   host: process.env.DB_HOST || 'localhost',
-  port: process.env.DB_PORT || 5432,
+  port: process.env.DB_PORT || 5433, // Defaulting to 5433 as per our setup
   user: process.env.DB_USER || 'user',
   password: process.env.DB_PASSWORD || 'password',
   database: process.env.DB_NAME || 'mydatabase',
 });
 
+// Test connection on startup
 async function connectDb() {
   let retries = 5;
   while (retries > 0) {
     try {
       console.log('Connecting to PostgreSQL...');
-      await client.connect();
+      // Simple query to test connection
+      await pool.query('SELECT NOW()');
       console.log('Connected successfully!');
       return true;
     } catch (err) {
-      console.log(`Connection failed, retrying in 3s... (${retries} attempts left)`);
+      console.log(`Connection failed, retrying in 3s... (${retries} attempts left)`)
       console.error(err.message);
       retries--;
       await new Promise(res => setTimeout(res, 3000));
@@ -32,7 +35,7 @@ async function connectDb() {
 
 app.get('/', async (req, res) => {
   try {
-    const result = await client.query('SELECT * FROM users ORDER BY id');
+    const result = await pool.query('SELECT * FROM users ORDER BY id');
     
     let html = `
       <!DOCTYPE html>
@@ -73,7 +76,7 @@ app.get('/', async (req, res) => {
             </tbody>
           </table>
           <p style="margin-top: 30px; color: #666; font-size: 0.9em;">
-            Running on <strong>${process.env.DB_HOST || 'localhost'}</strong>
+            Running on <strong>${process.env.DB_HOST || 'localhost'}</strong> with <strong>Bun</strong> 🧅
           </p>
         </body>
       </html>
@@ -92,8 +95,7 @@ async function start() {
   }
 
   app.listen(port, () => {
-    console.log(`
-🚀 Server running at http://localhost:${port}`);
+    console.log(`\n🚀 Server running at http://localhost:${port}`);
     console.log(`Visit http://localhost:${port} in your browser to see the data.`);
   });
 }
