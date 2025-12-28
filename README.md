@@ -10,7 +10,7 @@ A minimal, ready-to-use template for a PostgreSQL project with a Node.js connect
 
 - 🐳 **Dockerized PostgreSQL**: Pre-configured `docker-compose.yml` with a health check.
 - 💾 **Auto-Initialization**: `init.sql` automatically creates a table and seeds data on first run.
-- 🚀 **Ready to Run**: Includes a simple Node.js script (`index.js`) to connect and query the database.
+- 🚀 **Ready to Run**: Includes an **Express.js** web server (`index.js`) to display data in the browser.
 - ☁️ **Cloud Ready**: Configured for CodeSandbox Devboxes.
 
 ## Quick Start (Local)
@@ -29,7 +29,7 @@ A minimal, ready-to-use template for a PostgreSQL project with a Node.js connect
     ```bash
     npm start
     ```
-    You should see a table of users printed to the console.
+    Open [http://localhost:3000](http://localhost:3000) in your browser to see the user data.
 
 4.  **Stop Database**:
     ```bash

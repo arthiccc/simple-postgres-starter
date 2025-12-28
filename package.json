@@ -17,6 +17,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "express": "^5.2.1",
     "pg": "^8.11.3"
   }
 }
