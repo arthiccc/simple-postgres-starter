@@ -40,9 +40,9 @@ A minimal, ready-to-use template for a PostgreSQL project with a Node.js connect
 
 This project is configured to run automatically in a CodeSandbox Devbox (VM).
 
-[![Open in CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/github/YOUR_USERNAME/simple-postgres-starter)
+[![Open in CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/github/arthiccc/simple-postgres-starter)
 
-*Replace `YOUR_USERNAME` in the URL above with your GitHub username after forking.*
+*Replace `arthiccc` in the URL above with your GitHub username after forking.*
 
 ## Project Structure
 
