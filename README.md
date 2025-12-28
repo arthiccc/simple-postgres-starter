@@ -51,3 +51,20 @@ This project is configured to run automatically in a CodeSandbox Devbox (VM).
 - `init.sql`: SQL script ran on container startup (creates `users` table).
 - `index.js`: Bun/Express script connecting to the DB and fetching data.
 - `.codesandbox/`: Configuration for cloud development environment.
+
+## MCP Server (Python)
+
+An MCP server is included to allow LLMs to interact with the database.
+
+1.  **Install Python Dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+2.  **Run the Server**:
+    Make sure the database is running (`bun run db:up`), then:
+    ```bash
+    python mcp_server.py
+    ```
+
+This exposes tools to list users, find users, add users, and run safe SQL queries.
